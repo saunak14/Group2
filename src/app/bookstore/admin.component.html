@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-dark text-white">
+            <a href="" class="navbar-brand">
+                Book E-Commerce Website
+            </a>
+        </div>
+    </div>
+    <!-- <div *ngIf="submitted" class="m-2 text-center">
+        <h2>Thanks!</h2>
+        <p>We'll ship your goods in 3-5 business days</p>
+        <button class="btn btn-primary" routerLink="/aciStore">
+            Return to AciStore
+        </button>
+    </div> -->
+    <form #form="ngForm" novalidate (ngSubmit)="submitBook(form)" class="m-2">
+        <div class="form-group">
+ 
+            <label>ID</label>
+            <input class="form-control" #id="ngModel" name="id" [(ngModel)]="book.id" required />
+            <span *ngIf="submitted && id.invalid" class="text-danger">
+                Please enter book id
+            </span>
+
+            <label>Title</label>
+            <input class="form-control" #title="ngModel" name="title" [(ngModel)]="book.title" required />
+            <span *ngIf="submitted && title.invalid" class="text-danger">
+                Please enter bok title
+            </span>
+ 
+            <label>Author</label>
+            <input class="form-control" #author="ngModel" name="author" [(ngModel)]="book.author" required />
+            <span *ngIf="submitted && author.invalid" class="text-danger">
+                Please enter author
+            </span>
+ 
+            <label>Price</label>
+            <input class="form-control" #price="ngModel" name="price" [(ngModel)]="book.price" required />
+            <span *ngIf="submitted && price.invalid" class="text-danger">
+                Please enter price
+            </span>
+
+            <label>Number of books In Stock</label>
+            <input class="form-control" #noInStock="ngModel" name="noInStock" [(ngModel)]="book.noInStock" required />
+            <span *ngIf="submitted && noInStock.invalid" class="text-danger">
+                Please enter Number of books In Stock
+            </span>
+ 
+            <label>Number of books to order</label>
+            <input class="form-control" #stopOrder="ngModel" name="stopOrder" [(ngModel)]="book.stopOrder" required />
+            <span *ngIf="submitted && stopOrder.invalid" class="text-danger">
+                Please enter Number of books to order
+            </span>
+
+            <label>Re-ordering threshold</label>
+            <input class="form-control" #reorderingThreshold="ngModel" name="reorderingThreshold" [(ngModel)]="book.reorderingThreshold" required />
+            <span *ngIf="submitted && reorderingThreshold.invalid" class="text-danger">
+                Please enter reorderingThreshold
+            </span>
+ 
+        </div>
+        <div class="text-center">
+            <button class="btn btn-secondary m-1" routerLink="/cart">
+            Back</button>
+        </div>
+        <div class="text-center">
+        <button class="btn btn-primary m-1" type="submit">
+            Submit book
+        </button>
+        </div>
+    </form>
+    
+</div>
